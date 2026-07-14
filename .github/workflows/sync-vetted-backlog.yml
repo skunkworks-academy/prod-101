@@ -125,6 +125,9 @@ jobs:
               'status: backlog', 'status: ready', 'status: in-progress',
               'status: in-review', 'status: blocked', 'status: done'
             ]);
+            const managedTaxonomyPrefixes = [
+              'type:', 'workstream:', 'priority:', 'status:', 'module:', 'control:'
+            ];
 
             function buildBody(task) {
               const dependencies = task.dependencies.length
@@ -133,11 +136,12 @@ jobs:
               const criteria = task.acceptance_criteria
                 .map(value => `- [ ] ${value}`)
                 .join('\n');
+              const effortUnit = Number(task.planned_hours) === 1 ? 'hour' : 'hours';
               return [
                 '<!-- vetted-backlog-managed -->',
                 `**Milestone:** ${task.milestone}`,
                 `**Due date:** ${task.due_date}`,
-                `**Planned effort:** ${task.planned_hours} hours`,
+                `**Planned effort:** ${task.planned_hours} ${effortUnit}`,
                 `**Accountable role:** ${task.owner_role}`,
                 `**Validation status:** ${task.validity}`,
                 '',
@@ -176,8 +180,11 @@ jobs:
               if (existing && existing.state === 'closed') statusLabel = 'status: done';
               if (!statusLabel) statusLabel = 'status: ready';
 
+              const unrelatedLabels = currentLabels.filter(
+                label => !managedTaxonomyPrefixes.some(prefix => label.startsWith(prefix))
+              );
               const labels = Array.from(new Set([
-                ...currentLabels.filter(label => !managedStatusLabels.has(label)),
+                ...unrelatedLabels,
                 ...task.labels,
                 statusLabel
               ]));
