@@ -19,7 +19,6 @@ jobs:
         run: |
           import csv
           import pathlib
-          import sys
           from datetime import date
 
           root = pathlib.Path('.')
@@ -59,10 +58,11 @@ jobs:
           for row in modules:
               date.fromisoformat(row['due_date'])
 
+          placeholder_domain = 'example' + '.com'
           for path in root.rglob('*'):
               if path.is_file() and path.suffix.lower() in {'.md','.yml','.yaml','.csv','.html','.ps1'}:
                   text = path.read_text(encoding='utf-8', errors='ignore')
-                  if 'example.com' in text:
-                      raise SystemExit(f'Placeholder example.com reference found in {path}')
+                  if placeholder_domain in text:
+                      raise SystemExit(f'Placeholder domain reference found in {path}')
 
           print(f'Project controls valid. Modules: {len(modules)}; target runtime: {total_minutes} minutes.')
