@@ -1,0 +1,9 @@
+module_id,module_title,target_minutes,bloom_levels,script_status,slides_status,activity_status,assessment_status,recording_status,edit_status,caption_status,qa_status,owner,due_date,evidence_link,notes
+M01,Introduction to Productivity,15,"Remember;Understand",Draft,Partial,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Current deck contains introductory material only
+M02,Goal Setting,30,"Apply;Analyse",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Include SMART goals and prioritisation
+M03,Time Management Techniques,45,"Apply;Analyse",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Pomodoro Eisenhower Matrix batching and time blocking
+M04,Eliminating Distractions,30,"Apply;Analyse",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Physical and digital distraction controls
+M05,Efficient Task Management,45,"Apply;Analyse",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Tools delegation progress tracking and workflow design
+M06,Effective Communication,30,"Understand;Apply",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Active listening remote collaboration and conflict handling
+M07,Mindset and Motivation,45,"Understand;Apply;Evaluate",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Growth mindset procrastination resilience and self-care
+M08,Habit Formation,30,"Apply;Evaluate",Draft,Not started,Draft,Not started,Not started,Not started,Not started,Not started,Raydo Matthee,2026-08-07,,Habit stacking tracking and accountability
