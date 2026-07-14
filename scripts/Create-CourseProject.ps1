@@ -57,14 +57,31 @@ Ensure-Field -Name "Start Date" -Type DATE
 Ensure-Field -Name "ROI Impact" -Type TEXT
 Ensure-Field -Name "Evidence" -Type TEXT
 
-$issues = gh issue list --repo "$Owner/$Repository" --state all --limit 200 --json url | ConvertFrom-Json
-foreach ($issue in $issues) {
+$issueUrls = gh issue list --repo "$Owner/$Repository" --state all --limit 300 --json url | ConvertFrom-Json
+$prUrls = gh pr list --repo "$Owner/$Repository" --state all --limit 100 --json url | ConvertFrom-Json
+$items = @($issueUrls) + @($prUrls)
+
+foreach ($item in $items) {
     try {
-        gh project item-add $projectNumber --owner $Owner --url $issue.url | Out-Null
+        gh project item-add $projectNumber --owner $Owner --url $item.url | Out-Null
     } catch {
-        Write-Warning "Could not add $($issue.url): $($_.Exception.Message)"
+        Write-Warning "Could not add $($item.url): $($_.Exception.Message)"
     }
 }
 
-Write-Host "Project configured: https://github.com/orgs/$Owner/projects/$projectNumber" -ForegroundColor Cyan
-Write-Host "Create views in the GitHub UI: Executive Overview, Production Kanban, Module Pipeline, QA Queue, Blockers, Deadlines, Time & ROI, Marketing Lifecycle." -ForegroundColor Cyan
+$projectUrl = "https://github.com/orgs/$Owner/projects/$projectNumber"
+Write-Host "Project configured: $projectUrl" -ForegroundColor Cyan
+Write-Host "Issues and pull requests were added or verified." -ForegroundColor Cyan
+Write-Host "" 
+Write-Host "IMPORTANT: GitHub CLI field creation does not prove that management views exist." -ForegroundColor Yellow
+Write-Host "Configure and evidence all views specified in docs/PROJECT_VIEWS.md:" -ForegroundColor Yellow
+Write-Host " - Executive Overview"
+Write-Host " - Production Kanban"
+Write-Host " - Module Pipeline"
+Write-Host " - QA Queue"
+Write-Host " - Blockers and Risks"
+Write-Host " - Deadlines and Critical Path"
+Write-Host " - Time and ROI"
+Write-Host " - Marketing and Lifecycle"
+Write-Host "" 
+Write-Host "Then run scripts/Set-CourseDevelopmentTeamAccess.ps1 and attach the project, view and access evidence to the relevant P0 issues." -ForegroundColor Yellow
