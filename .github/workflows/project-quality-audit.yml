@@ -14,10 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate control files and project data
+
+      - name: Validate control files, course data and vetted backlog
         shell: python
         run: |
           import csv
+          import json
+          import math
           import pathlib
           from datetime import date
 
@@ -29,11 +32,18 @@ jobs:
               'docs/TIME_AND_ROI.md',
               'docs/UDEMY_RELEASE_CHECKLIST.md',
               'docs/MARKETING_AND_LIFECYCLE.md',
+              'docs/PROJECT_VIEWS.md',
+              'docs/GOVERNANCE_AUDIT.md',
               'data/content-inventory.csv',
               'data/time-log.csv',
-              'data/roi-assumptions.csv'
+              'data/roi-assumptions.csv',
+              'data/vetted-backlog.json',
+              '.github/CODEOWNERS',
+              '.github/pull_request_template.md',
+              '.github/workflows/sync-vetted-backlog.yml',
+              'scripts/Set-CourseDevelopmentTeamAccess.ps1'
           ]
-          missing = [p for p in required if not (root / p).exists()]
+          missing = [path for path in required if not (root / path).exists()]
           if missing:
               raise SystemExit(f'Missing required control files: {missing}')
 
@@ -43,26 +53,118 @@ jobs:
               'data/roi-assumptions.csv': ['metric','conservative','base','upside','unit','notes']
           }
           for path, expected in expected_headers.items():
-              with open(path, newline='', encoding='utf-8') as f:
-                  actual = next(csv.reader(f))
+              with open(path, newline='', encoding='utf-8') as handle:
+                  actual = next(csv.reader(handle))
               if actual != expected:
                   raise SystemExit(f'{path} header mismatch. Expected {expected}; got {actual}')
 
-          with open('data/content-inventory.csv', newline='', encoding='utf-8') as f:
-              modules = list(csv.DictReader(f))
+          with open('data/content-inventory.csv', newline='', encoding='utf-8') as handle:
+              modules = list(csv.DictReader(handle))
           if len(modules) != 8:
               raise SystemExit(f'Expected 8 modules, found {len(modules)}')
           total_minutes = sum(int(row['target_minutes']) for row in modules)
           if not 120 <= total_minutes <= 240:
-              raise SystemExit(f'Target runtime {total_minutes} minutes is outside the approved 2-4 hour range')
+              raise SystemExit(f'Target runtime {total_minutes} minutes is outside the approved 2–4 hour range')
           for row in modules:
               date.fromisoformat(row['due_date'])
 
+          with open('data/vetted-backlog.json', encoding='utf-8') as handle:
+              register = json.load(handle)
+          if register.get('schema_version') != 1:
+              raise SystemExit('Unsupported vetted backlog schema version')
+          date.fromisoformat(register['last_vetted'])
+          if not register.get('official_sources') or len(register['official_sources']) < 4:
+              raise SystemExit('Vetted backlog must identify authoritative platform and governance sources')
+
+          milestones = register.get('milestones', [])
+          tasks = register.get('tasks', [])
+          if len(milestones) != 9:
+              raise SystemExit(f'Expected 9 milestones M0–M8, found {len(milestones)}')
+          if len(tasks) < 65:
+              raise SystemExit(f'Expected a complete vetted backlog of at least 65 tasks, found {len(tasks)}')
+
+          milestone_dates = {}
+          for milestone in milestones:
+              title = milestone['title']
+              due = date.fromisoformat(milestone['due_date'])
+              if title in milestone_dates:
+                  raise SystemExit(f'Duplicate milestone title: {title}')
+              milestone_dates[title] = due
+
+          required_task_fields = {
+              'title', 'milestone', 'due_date', 'planned_hours', 'owner_role',
+              'dependencies', 'objective', 'acceptance_criteria', 'evidence',
+              'labels', 'validity'
+          }
+          titles = set()
+          issue_numbers = set()
+          initial_hours = 0.0
+          for task in tasks:
+              missing_fields = required_task_fields - set(task)
+              if missing_fields:
+                  raise SystemExit(f"Task {task.get('title', '<unknown>')} is missing fields: {sorted(missing_fields)}")
+              if task['title'] in titles:
+                  raise SystemExit(f"Duplicate task title: {task['title']}")
+              titles.add(task['title'])
+
+              issue_number = task.get('issue_number')
+              if issue_number is not None:
+                  if issue_number in issue_numbers:
+                      raise SystemExit(f'Duplicate existing issue number: {issue_number}')
+                  issue_numbers.add(issue_number)
+
+              if task['milestone'] not in milestone_dates:
+                  raise SystemExit(f"Unknown milestone for task {task['title']}: {task['milestone']}")
+              task_due = date.fromisoformat(task['due_date'])
+              if task_due > milestone_dates[task['milestone']]:
+                  raise SystemExit(f"Task due after milestone: {task['title']} ({task_due})")
+              if float(task['planned_hours']) < 0:
+                  raise SystemExit(f"Negative planned hours: {task['title']}")
+              if task['validity'] != 'approved':
+                  raise SystemExit(f"Task is not approved: {task['title']}")
+              if not task['objective'].strip():
+                  raise SystemExit(f"Missing objective: {task['title']}")
+              if not task['owner_role'].strip():
+                  raise SystemExit(f"Missing accountable role: {task['title']}")
+              if len(task['acceptance_criteria']) < 3:
+                  raise SystemExit(f"Insufficient acceptance criteria: {task['title']}")
+              if not task['evidence'].strip():
+                  raise SystemExit(f"Missing evidence requirement: {task['title']}")
+              if not task['labels']:
+                  raise SystemExit(f"Missing labels: {task['title']}")
+
+              milestone_code = task['milestone'].split(' ')[0]
+              if milestone_code in {'M0','M1','M2','M3','M4','M5','M6'} and not task['title'].startswith('[EPIC]'):
+                  initial_hours += float(task['planned_hours'])
+
+          expected_initial_hours = float(register['baseline_initial_hours'])
+          if not math.isclose(initial_hours, expected_initial_hours, abs_tol=0.001):
+              raise SystemExit(f'Initial task hours {initial_hours} do not equal baseline {expected_initial_hours}')
+
+          with open('data/roi-assumptions.csv', newline='', encoding='utf-8') as handle:
+              roi_rows = {row['metric']: row for row in csv.DictReader(handle)}
+          planned_hours = float(roi_rows['planned_production_hours']['base'])
+          if not math.isclose(planned_hours, expected_initial_hours, abs_tol=0.001):
+              raise SystemExit(f'ROI planned hours {planned_hours} do not equal vetted baseline {expected_initial_hours}')
+          hourly_cost = float(roi_rows['blended_hourly_cost']['base'])
+          direct_cost = float(roi_rows['direct_cash_costs']['base'])
+          expected_investment = expected_initial_hours * hourly_cost + direct_cost
+          stated_investment = float(roi_rows['initial_investment']['base'])
+          if not math.isclose(expected_investment, stated_investment, abs_tol=0.01):
+              raise SystemExit(f'ROI investment {stated_investment} does not reconcile to {expected_investment}')
+
+          codeowners = pathlib.Path('.github/CODEOWNERS').read_text(encoding='utf-8')
+          if '@skunkworks-academy/Course-Development-Team' not in codeowners:
+              raise SystemExit('Course-Development-Team is not configured in CODEOWNERS')
+
           placeholder_domain = 'example' + '.com'
           for path in root.rglob('*'):
-              if path.is_file() and path.suffix.lower() in {'.md','.yml','.yaml','.csv','.html','.ps1'}:
+              if path.is_file() and path.suffix.lower() in {'.md','.yml','.yaml','.csv','.html','.ps1','.json'}:
                   text = path.read_text(encoding='utf-8', errors='ignore')
                   if placeholder_domain in text:
                       raise SystemExit(f'Placeholder domain reference found in {path}')
 
-          print(f'Project controls valid. Modules: {len(modules)}; target runtime: {total_minutes} minutes.')
+          print(
+              f'Project controls valid. Modules: {len(modules)}; runtime: {total_minutes} minutes; '
+              f'milestones: {len(milestones)}; vetted tasks: {len(tasks)}; initial hours: {initial_hours}.'
+          )

@@ -1,0 +1,215 @@
+name: Sync vetted course backlog
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - data/vetted-backlog.json
+      - .github/workflows/sync-vetted-backlog.yml
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Synchronise labels, milestones and vetted issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const register = JSON.parse(fs.readFileSync('data/vetted-backlog.json', 'utf8'));
+
+            const labelDefs = [
+              ['type: epic','5319E7','Milestone-level outcome'],
+              ['type: task','1D76DB','Delivery task'],
+              ['type: blocker','B60205','Blocked work requiring escalation'],
+              ['type: meeting','0E8A16','Meeting minutes and decisions'],
+              ['type: qa','D93F0B','Quality review or defect'],
+              ['type: risk','B60205','Project risk requiring ownership and mitigation'],
+              ['type: decision','006B75','Governance or investment decision'],
+              ['workstream: governance','0052CC','Governance and planning'],
+              ['workstream: content','0075CA','Course architecture, scripts and learner assets'],
+              ['workstream: production','006B75','Recording, editing, captions and media'],
+              ['workstream: publishing','7057FF','Udemy configuration and publication'],
+              ['workstream: marketing','E99695','Launch and lifecycle marketing'],
+              ['workstream: roi','FBCA04','Time, cost, revenue and ROI'],
+              ['priority: P0','B60205','Critical blocker or gate'],
+              ['priority: P1','D93F0B','High priority'],
+              ['priority: P2','FBCA04','Normal priority'],
+              ['priority: P3','C5DEF5','Low priority'],
+              ['status: backlog','D4C5F9','Not yet ready to start'],
+              ['status: ready','0E8A16','Ready to start'],
+              ['status: in-progress','1D76DB','Work in progress'],
+              ['status: in-review','5319E7','Awaiting review'],
+              ['status: blocked','B60205','Blocked'],
+              ['status: done','6F42C1','Accepted and complete'],
+              ['control: access','B60205','Repository, project or team access control'],
+              ['control: compliance','D93F0B','Policy, rights, privacy or platform compliance'],
+              ['module: M01','C2E0C6','Introduction to Productivity'],
+              ['module: M02','C2E0C6','Goal Setting'],
+              ['module: M03','C2E0C6','Time Management Techniques'],
+              ['module: M04','C2E0C6','Eliminating Distractions'],
+              ['module: M05','C2E0C6','Efficient Task Management'],
+              ['module: M06','C2E0C6','Effective Communication'],
+              ['module: M07','C2E0C6','Mindset and Motivation'],
+              ['module: M08','C2E0C6','Habit Formation']
+            ];
+
+            const existingLabels = await github.paginate(
+              github.rest.issues.listLabelsForRepo,
+              {owner, repo, per_page: 100}
+            );
+            const existingLabelNames = new Set(existingLabels.map(label => label.name));
+            for (const [name, color, description] of labelDefs) {
+              if (existingLabelNames.has(name)) {
+                await github.rest.issues.updateLabel({owner, repo, name, color, description});
+              } else {
+                await github.rest.issues.createLabel({owner, repo, name, color, description});
+              }
+            }
+
+            const milestoneDescriptions = {
+              'M0 — Governance and baseline': 'Project controls, access, source inventory, backlog and commercial baseline approved',
+              'M1 — Course architecture and content plan': 'Validated market, eight-module blueprint, outcomes, assessments, rights and production plan approved',
+              'M2 — Scripts, slides and learner assets': 'Recording-ready scripts, slides, workbook, assessments and learner support assets approved',
+              'M3 — Recording and post-production': 'All video, audio, captions, media inventory and backup evidence complete',
+              'M4 — QA, proof and release candidate': 'Instructional, language, media, accessibility, policy and platform QA passed',
+              'M5 — Udemy publication': 'Course submitted, approved and publicly available with investment evidence',
+              'M6 — Launch marketing': 'Launch assets, campaigns, partner outreach and analytics controls operational',
+              'M7 — 90-day ROI validation': '30-, 60- and 90-day performance, cost, break-even and investment decision recorded',
+              'M8 — 180-day lifecycle review': 'Six-month content, market, policy and commercial review complete'
+            };
+
+            const existingMilestones = await github.paginate(
+              github.rest.issues.listMilestones,
+              {owner, repo, state: 'all', per_page: 100}
+            );
+            const milestoneMap = new Map(existingMilestones.map(m => [m.title, m]));
+            for (const definition of register.milestones) {
+              const due_on = `${definition.due_date}T21:59:59Z`;
+              const description = milestoneDescriptions[definition.title] || 'Vetted course delivery milestone';
+              const existing = milestoneMap.get(definition.title);
+              if (existing) {
+                const updated = await github.rest.issues.updateMilestone({
+                  owner,
+                  repo,
+                  milestone_number: existing.number,
+                  title: definition.title,
+                  description,
+                  due_on,
+                  state: existing.state
+                });
+                milestoneMap.set(definition.title, updated.data);
+              } else {
+                const created = await github.rest.issues.createMilestone({owner, repo, title: definition.title, description, due_on});
+                milestoneMap.set(definition.title, created.data);
+              }
+            }
+
+            const allItems = await github.paginate(
+              github.rest.issues.listForRepo,
+              {owner, repo, state: 'all', per_page: 100}
+            );
+            const issues = allItems.filter(item => !item.pull_request);
+            const byNumber = new Map(issues.map(issue => [issue.number, issue]));
+            const byTitle = new Map(issues.map(issue => [issue.title, issue]));
+            const managedStatusLabels = new Set([
+              'status: backlog', 'status: ready', 'status: in-progress',
+              'status: in-review', 'status: blocked', 'status: done'
+            ]);
+
+            function buildBody(task) {
+              const dependencies = task.dependencies.length
+                ? task.dependencies.map(value => `- ${value}`).join('\n')
+                : '- None';
+              const criteria = task.acceptance_criteria
+                .map(value => `- [ ] ${value}`)
+                .join('\n');
+              return [
+                '<!-- vetted-backlog-managed -->',
+                `**Milestone:** ${task.milestone}`,
+                `**Due date:** ${task.due_date}`,
+                `**Planned effort:** ${task.planned_hours} hours`,
+                `**Accountable role:** ${task.owner_role}`,
+                `**Validation status:** ${task.validity}`,
+                '',
+                '## Objective',
+                task.objective,
+                '',
+                '## Dependencies',
+                dependencies,
+                '',
+                '## Acceptance criteria',
+                criteria,
+                '',
+                '## Required completion evidence',
+                task.evidence,
+                '',
+                '## Completion controls',
+                '- [ ] Named assignee confirmed',
+                '- [ ] Actual time added to `data/time-log.csv`',
+                '- [ ] Evidence links are accessible to the project team',
+                '- [ ] Review comments and P0/P1 defects are resolved',
+                '- [ ] Milestone and ROI impacts are updated when scope changes',
+                '',
+                `Managed from \`data/vetted-backlog.json\` (v${register.schema_version}, vetted ${register.last_vetted}).`
+              ].join('\n');
+            }
+
+            let createdCount = 0;
+            let updatedCount = 0;
+            for (const task of register.tasks) {
+              let existing = null;
+              if (task.issue_number !== null) existing = byNumber.get(task.issue_number) || null;
+              if (!existing) existing = byTitle.get(task.title) || null;
+
+              const currentLabels = existing ? existing.labels.map(label => label.name) : [];
+              let statusLabel = currentLabels.find(label => managedStatusLabels.has(label));
+              if (existing && existing.state === 'closed') statusLabel = 'status: done';
+              if (!statusLabel) statusLabel = 'status: ready';
+
+              const labels = Array.from(new Set([
+                ...currentLabels.filter(label => !managedStatusLabels.has(label)),
+                ...task.labels,
+                statusLabel
+              ]));
+              const milestone = milestoneMap.get(task.milestone);
+              if (!milestone) throw new Error(`Milestone not found: ${task.milestone}`);
+
+              const payload = {
+                owner,
+                repo,
+                title: task.title,
+                body: buildBody(task),
+                labels,
+                milestone: milestone.number
+              };
+
+              if (existing) {
+                await github.rest.issues.update({
+                  ...payload,
+                  issue_number: existing.number,
+                  state: existing.state
+                });
+                updatedCount += 1;
+              } else {
+                const created = await github.rest.issues.create(payload);
+                byNumber.set(created.data.number, created.data);
+                byTitle.set(created.data.title, created.data);
+                createdCount += 1;
+              }
+            }
+
+            core.summary
+              .addHeading('Vetted course backlog synchronised')
+              .addRaw(`Created ${createdCount} issues and updated ${updatedCount} issues.`)
+              .addRaw(` Verified ${labelDefs.length} labels and ${register.milestones.length} milestones.`)
+              .write();
