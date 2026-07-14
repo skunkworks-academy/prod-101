@@ -1,0 +1,67 @@
+name: Meeting minutes
+description: Record decisions, actions, risks and time from a project meeting.
+title: "[MEETING] YYYY-MM-DD - "
+labels: []
+body:
+  - type: input
+    id: date_time
+    attributes:
+      label: Date and time
+      placeholder: "2026-07-17 09:00 SAST"
+    validations:
+      required: true
+  - type: input
+    id: attendees
+    attributes:
+      label: Attendees
+    validations:
+      required: true
+  - type: input
+    id: duration
+    attributes:
+      label: Duration in hours
+      placeholder: "0.5"
+    validations:
+      required: true
+  - type: textarea
+    id: agenda
+    attributes:
+      label: Agenda
+    validations:
+      required: true
+  - type: textarea
+    id: progress
+    attributes:
+      label: Progress since previous review
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Decisions and assumptions
+      placeholder: |
+        1. Decision — owner — effective date
+    validations:
+      required: true
+  - type: textarea
+    id: actions
+    attributes:
+      label: Actions
+      placeholder: |
+        - [ ] Action — @owner — due YYYY-MM-DD — issue #
+    validations:
+      required: true
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Blockers and risks
+      description: Link blocker issues or write None.
+    validations:
+      required: true
+  - type: textarea
+    id: milestone_health
+    attributes:
+      label: Milestone and ROI impact
+      description: Record schedule variance, forecast hours and expected commercial impact.
+    validations:
+      required: true
