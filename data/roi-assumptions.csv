@@ -1,8 +1,9 @@
 metric,conservative,base,upside,unit,notes
-planned_production_hours,110,110,110,hours,Replace with actual hours at publication
-blended_hourly_cost,750,750,750,ZAR_per_hour,Internal opportunity cost assumption
-direct_cash_costs,15000,15000,15000,ZAR,Editing design equipment and launch spend
-initial_investment,97500,97500,97500,ZAR,Hours times rate plus direct cash costs
-net_contribution_per_enrolment,150,350,700,ZAR,Use realised platform payout less variable costs
-break_even_enrolments,650,279,140,enrolments,Round initial investment divided by net contribution upward
-target_break_even_date,2027-03-04,2027-01-04,2026-12-04,date,Planning targets subject to approved commercial baseline
+planned_production_hours,127.5,127.5,127.5,hours,Task-derived initial production and launch baseline; replace with actual hours at publication
+blended_hourly_cost,750,750,750,ZAR_per_hour,Illustrative internal opportunity cost pending owner approval
+direct_cash_costs,15000,15000,15000,ZAR,Illustrative editing design equipment and launch spend pending approval
+initial_investment,110625,110625,110625,ZAR,Planned hours times rate plus direct cash costs
+net_contribution_per_enrolment,150,350,700,ZAR,Use realised platform payout and attributable margin less refunds and variable costs
+break_even_enrolments,738,317,159,enrolments,Initial investment divided by net contribution rounded upward
+roi_validation_date,2026-12-04,2026-12-04,2026-12-04,date,Ninety-day validation deadline; not a guarantee that break-even has occurred
+break_even_target_date,2027-06-04,2027-03-04,2026-12-04,date,Scenario planning targets subject to approved commercial baseline and actual sales velocity
