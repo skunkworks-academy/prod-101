@@ -4,87 +4,112 @@
 
 | Milestone | Due date | Exit outcome |
 |---|---:|---|
-| M0 — Governance and baseline | 17 Jul 2026 | Project controls, source inventory, backlog, time and ROI baseline approved |
-| M1 — Course architecture and content plan | 24 Jul 2026 | Eight-module blueprint, outcomes, assessments and asset plan approved |
-| M2 — Scripts, slides and learner assets | 7 Aug 2026 | Recording-ready scripts, slide deck, workbook and activity assets approved |
-| M3 — Recording and post-production | 21 Aug 2026 | All video, audio, captions and lesson exports complete |
-| M4 — QA, proof and release candidate | 28 Aug 2026 | Content, language, media, accessibility and platform QA passed |
-| M5 — Udemy publication | 4 Sep 2026 | Course submitted, approved and publicly available |
-| M6 — Launch marketing | 18 Sep 2026 | Listing optimisation, launch campaign and partner promotion complete |
-| M7 — 90-day ROI validation | 4 Dec 2026 | Actual time, cost, revenue, break-even and improvement decision recorded |
+| M0 — Governance and baseline | 17 Jul 2026 | Project controls, team access, source inventory, vetted backlog, time and ROI baseline approved |
+| M1 — Course architecture and content plan | 24 Jul 2026 | Market validation, eight-module blueprint, outcomes, assessments, rights and production plan approved |
+| M2 — Scripts, slides and learner assets | 7 Aug 2026 | Recording-ready scripts, slide deck, workbook, assessment and learner-support assets approved |
+| M3 — Recording and post-production | 21 Aug 2026 | All video, audio, captions, media inventory, backup and lesson exports complete |
+| M4 — QA, proof and release candidate | 28 Aug 2026 | Content, language, media, accessibility, rights, policy and platform QA passed |
+| M5 — Udemy publication | 4 Sep 2026 | Course submitted by 2 Sep, approved and publicly available by 4 Sep |
+| M6 — Launch marketing | 18 Sep 2026 | Listing optimisation, launch campaign, partner promotion and analytics controls complete |
+| M7 — 90-day ROI validation | 4 Dec 2026 | 30-, 60- and 90-day reviews, actual time, cost, revenue, break-even and investment decision recorded |
+| M8 — 180-day lifecycle review | 4 Mar 2027 | Six-month content, market, platform-policy and commercial review complete |
 
 ## Work breakdown
 
 ### M0 — Governance and baseline
 
-- Confirm project charter and owners.
+- Confirm project charter, named role owners and decision rights.
 - Inventory the outline, manuscript and presentation source assets.
-- Establish issue forms, Definition of Done and evidence rules.
-- Baseline planned effort, cash costs and commercial assumptions.
-- Create the GitHub Project view, milestones, labels and backlog.
+- Establish issue forms, Definition of Done, evidence rules and registers.
+- Baseline task-level effort, cash costs and commercial assumptions.
+- Create and evidence the GitHub Project, fields, views, labels and milestones.
+- Verify Course-Development-Team Admin access to the repository and Project.
+- Configure branch protection, required checks and team review.
+- Hold the first weekly production review and record meeting minutes.
 
 ### M1 — Course architecture and content plan
 
-- Validate target audience, learner personas and course promise.
+- Validate target audience, learner personas, market demand and course promise.
+- Compare current marketplace positioning and approve differentiators and keywords.
 - Rewrite measurable outcomes using Bloom-aligned verbs.
-- Define module, lesson and lecture structure for 2–4 hours total runtime.
-- Map each objective to content, activity and assessment evidence.
-- Resolve duplicated, placeholder and unsupported source material.
-- Approve production standards and recording specification.
+- Define the module, lesson and lecture structure within the 240-minute ceiling.
+- Map every objective to content, activity and assessment evidence.
+- Resolve duplicated, placeholder, unsupported and stale source material.
+- Approve rights, references, trademarks, AI-assisted-content and source policy.
+- Confirm instructor account, identity, payout, tax, pricing and platform-policy readiness.
+- Approve production, recording, caption, backup and file standards.
 
 ### M2 — Scripts, slides and learner assets
 
-- Complete scripts for modules 1–8.
-- Redesign and expand the current introductory deck into a consistent full-course deck.
+- Complete recording-ready packs for modules M01–M08.
+- Redesign and expand the introductory deck into a consistent full-course deck.
 - Create workbook, templates, checklists and habit/productivity tools.
-- Build quizzes and practical assignments.
-- Verify references and replace placeholder links.
-- Conduct author proof and independent content review.
+- Build quizzes, practical assignments and answer guidance.
+- Create learner-support FAQ and external-link register.
+- Verify references, rights and approved claims.
+- Conduct author proof, independent content review and recording-readiness gate.
 
 ### M3 — Recording and post-production
 
-- Prepare studio, microphone, camera, screen-capture and teleprompter workflow.
-- Record promo video and all module lessons.
-- Edit video and audio, remove errors and add chapter markers.
-- Produce captions/transcripts and accessible visual descriptions where needed.
-- Export to Udemy-compliant formats and verify playback.
+- Test the studio, microphone, camera, screen capture, teleprompter, export and backup workflow.
+- Submit or internally review a representative 1–3 minute test video.
+- Record the promo video and all module lectures.
+- Edit video and audio, remove errors and add consistent transitions where useful.
+- Produce and manually correct captions/transcripts.
+- Export to the approved delivery format and verify playback.
+- Reconcile final lecture count, runtime and media inventory.
+- Complete a backup restore test and confirm retention/access controls.
 
 ### M4 — QA, proof and release candidate
 
-- Instructional-design QA.
-- Technical and factual QA.
+- Instructional-design and outcome-alignment QA.
+- Technical, factual and reference QA.
 - Language, consistency and proofreading.
-- Video, audio and caption QA.
+- Video, audio, caption and device-playback QA.
 - Accessibility review.
+- Trust & Safety, copyright, trademark, AI-use, external-link and marketing-policy review.
 - Pilot learner review and defect remediation.
-- Final release-candidate sign-off.
+- Final immutable release-candidate sign-off with accepted-risk record.
 
 ### M5 — Udemy publication
 
-- Build title, subtitle, description, outcomes and instructor profile.
-- Upload curriculum, resources, captions and promo media.
-- Configure pricing, coupons and learner communications.
-- Complete platform checks and submit for review.
-- Resolve review feedback and publish.
+- Build title, subtitle, description, outcomes, intended-learners section and instructor profile.
+- Approve the unique course image and promo video.
+- Upload curriculum, resources, captions and learner messages.
+- Configure pricing, coupons, preview content and commercial settings.
+- Complete platform checks and submit by 2 September 2026.
+- Resolve required review feedback and repeat internal QA for material changes.
+- Verify public availability by 4 September 2026.
+- Freeze actual initial investment and publication evidence.
 
 ### M6 — Launch marketing
 
-- Publish landing page and lead-capture journey.
-- Activate LinkedIn, X/Twitter, Facebook and email campaign assets.
-- Release course trailers, clips, carousels and instructor posts.
-- Coordinate affiliate, partner and influencer outreach.
-- Monitor conversion, learner engagement, reviews and refund signals.
+- Produce launch creative, clips, lead asset and attribution links.
+- Activate LinkedIn, X/Twitter, Facebook and consent-based email campaigns.
+- Coordinate affiliate, partner and influencer outreach without review manipulation.
+- Establish learner-support, refund, review, incident and performance dashboards.
+- Capture the launch baseline for conversion and realised payout.
 
 ### M7 — 90-day ROI validation
 
-- Reconcile actual project time and cash costs.
-- Capture realised net revenue by channel.
-- Calculate break-even enrolments, contribution margin and ROI.
-- Analyse completion, rating, review, refund and engagement data.
-- Approve one of: continue, optimise, re-record, reprice, bundle or retire.
+- Complete the 30-day review on 4 October 2026.
+- Complete the 60-day review on 3 November 2026.
+- Complete the 90-day financial analysis on 3 December 2026.
+- Reconcile actual time, direct costs, payout, refunds and variable delivery costs.
+- Calculate contribution margin, break-even progress and realised ROI.
+- Analyse completion, rating, review, refund, support and engagement signals.
+- Approve one of: continue, optimise, re-record, reprice, bundle or retire by 4 December 2026.
+
+### M8 — 180-day lifecycle review
+
+- Complete the six-month content-currency review on 4 March 2027.
+- Check all links, downloads, examples and platform instructions.
+- Reassess competitor positioning, Udemy policy, pricing and revenue-share assumptions.
+- Analyse cumulative learner feedback and support burden.
+- Approve the update backlog, budget and next review date.
 
 ## Critical path
 
-Architecture approval → scripts and learner assets → recording → editing → QA → Udemy review → launch.
+Governance and access → architecture approval → scripts and learner assets → recording → editing → QA → Udemy submission → platform review → publication → launch → 30/60/90-day reviews → 180-day review.
 
-Any P0 blocker on the critical path must be escalated on the same business day. A milestone is not complete because tasks are marked done; its exit evidence must also be approved.
+Any P0 blocker on the critical path must be escalated on the same business day. A milestone is not complete because tasks are marked done; its exit evidence and gate decision must also be approved.
