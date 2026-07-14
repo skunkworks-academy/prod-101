@@ -1,0 +1,7 @@
+# All course-production changes require review from the Course Development Team.
+* @skunkworks-academy/Course-Development-Team
+
+# Governance and delivery-control changes require explicit team review.
+/.github/ @skunkworks-academy/Course-Development-Team
+/data/vetted-backlog.json @skunkworks-academy/Course-Development-Team
+/docs/ @skunkworks-academy/Course-Development-Team
