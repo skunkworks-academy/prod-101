@@ -1,0 +1,68 @@
+name: Project quality audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate control files and project data
+        shell: python
+        run: |
+          import csv
+          import pathlib
+          import sys
+          from datetime import date
+
+          root = pathlib.Path('.')
+          required = [
+              'PROJECT.md',
+              'docs/ROADMAP.md',
+              'docs/QUALITY_GATES.md',
+              'docs/TIME_AND_ROI.md',
+              'docs/UDEMY_RELEASE_CHECKLIST.md',
+              'docs/MARKETING_AND_LIFECYCLE.md',
+              'data/content-inventory.csv',
+              'data/time-log.csv',
+              'data/roi-assumptions.csv'
+          ]
+          missing = [p for p in required if not (root / p).exists()]
+          if missing:
+              raise SystemExit(f'Missing required control files: {missing}')
+
+          expected_headers = {
+              'data/content-inventory.csv': ['module_id','module_title','target_minutes','bloom_levels','script_status','slides_status','activity_status','assessment_status','recording_status','edit_status','caption_status','qa_status','owner','due_date','evidence_link','notes'],
+              'data/time-log.csv': ['date','contributor','issue_number','milestone','activity_category','planned_hours','actual_hours','cost_rate_zar','labour_cost_zar','evidence_link','notes'],
+              'data/roi-assumptions.csv': ['metric','conservative','base','upside','unit','notes']
+          }
+          for path, expected in expected_headers.items():
+              with open(path, newline='', encoding='utf-8') as f:
+                  actual = next(csv.reader(f))
+              if actual != expected:
+                  raise SystemExit(f'{path} header mismatch. Expected {expected}; got {actual}')
+
+          with open('data/content-inventory.csv', newline='', encoding='utf-8') as f:
+              modules = list(csv.DictReader(f))
+          if len(modules) != 8:
+              raise SystemExit(f'Expected 8 modules, found {len(modules)}')
+          total_minutes = sum(int(row['target_minutes']) for row in modules)
+          if not 120 <= total_minutes <= 240:
+              raise SystemExit(f'Target runtime {total_minutes} minutes is outside the approved 2-4 hour range')
+          for row in modules:
+              date.fromisoformat(row['due_date'])
+
+          for path in root.rglob('*'):
+              if path.is_file() and path.suffix.lower() in {'.md','.yml','.yaml','.csv','.html','.ps1'}:
+                  text = path.read_text(encoding='utf-8', errors='ignore')
+                  if 'example.com' in text:
+                      raise SystemExit(f'Placeholder example.com reference found in {path}')
+
+          print(f'Project controls valid. Modules: {len(modules)}; target runtime: {total_minutes} minutes.')
