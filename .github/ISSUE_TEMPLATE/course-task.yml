@@ -1,0 +1,102 @@
+name: Course production task
+description: Create a controlled task for content, production, QA, publishing, marketing or lifecycle work.
+title: "[TASK] "
+labels: []
+body:
+  - type: dropdown
+    id: workstream
+    attributes:
+      label: Workstream
+      options:
+        - Governance and planning
+        - Course architecture
+        - Content and scripts
+        - Slides and learner resources
+        - Assessment and activities
+        - Recording
+        - Editing and captions
+        - Quality assurance and proofing
+        - Udemy publishing
+        - Marketing
+        - Lifecycle and ROI
+    validations:
+      required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - Course-wide
+        - M01 Introduction to Productivity
+        - M02 Goal Setting
+        - M03 Time Management Techniques
+        - M04 Eliminating Distractions
+        - M05 Efficient Task Management
+        - M06 Effective Communication
+        - M07 Mindset and Motivation
+        - M08 Habit Formation
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: [P0 Critical, P1 High, P2 Normal, P3 Low]
+    validations:
+      required: true
+  - type: input
+    id: due
+    attributes:
+      label: Due date
+      description: Use YYYY-MM-DD.
+      placeholder: "2026-08-07"
+    validations:
+      required: true
+  - type: input
+    id: planned_hours
+    attributes:
+      label: Planned hours
+      placeholder: "4"
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective and business value
+      description: State the result and why it matters to publication, learner value or ROI.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Evidence linked
+        - [ ] Actual time recorded
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and blockers
+      description: Reference issue numbers or write None.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence location
+      description: Expected repository path, recording folder, review record or Udemy URL.
+    validations:
+      required: true
+  - type: checkboxes
+    id: controls
+    attributes:
+      label: Control confirmation
+      options:
+        - label: I will record actual time against this issue.
+          required: true
+        - label: I will not close this task without acceptance evidence.
+          required: true
