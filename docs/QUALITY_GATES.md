@@ -35,7 +35,7 @@ Every lesson requires:
 - activity or reflection where appropriate;
 - verified facts and references;
 - pronunciation notes and on-screen directions;
-- no placeholder text, example.com links or unresolved comments;
+- no placeholder text, temporary links or unresolved comments;
 - author proof and independent review.
 
 ## Gate 3 — Media ready
