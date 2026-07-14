@@ -1,0 +1,1887 @@
+{
+  "schema_version": 1,
+  "last_vetted": "2026-07-14",
+  "vetted_by": "OpenAI GPT-5.6 Thinking",
+  "baseline_initial_hours": 127.5,
+  "official_sources": [
+    "https://support.udemy.com/hc/en-us/articles/229604988-Udemy-course-quality-checklist",
+    "https://support.udemy.com/hc/en-us/articles/229604128-Creating-and-Submitting-a-Test-Video",
+    "https://support.udemy.com/hc/en-us/articles/229605348-Udemy-s-Quality-Review-Process",
+    "https://support.udemy.com/hc/en-us/categories/204119748-Trust-Safety",
+    "https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects",
+    "https://docs.github.com/en/rest/teams/teams#add-or-update-team-repository-permissions"
+  ],
+  "milestones": [
+    {
+      "title": "M0 — Governance and baseline",
+      "due_date": "2026-07-17"
+    },
+    {
+      "title": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-24"
+    },
+    {
+      "title": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-07"
+    },
+    {
+      "title": "M3 — Recording and post-production",
+      "due_date": "2026-08-21"
+    },
+    {
+      "title": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-28"
+    },
+    {
+      "title": "M5 — Udemy publication",
+      "due_date": "2026-09-04"
+    },
+    {
+      "title": "M6 — Launch marketing",
+      "due_date": "2026-09-18"
+    },
+    {
+      "title": "M7 — 90-day ROI validation",
+      "due_date": "2026-12-04"
+    },
+    {
+      "title": "M8 — 180-day lifecycle review",
+      "due_date": "2027-03-04"
+    }
+  ],
+  "tasks": [
+    {
+      "issue_number": 2,
+      "title": "[EPIC] M0 Governance and baseline",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 0,
+      "owner_role": "Course owner",
+      "dependencies": [],
+      "objective": "Establish an auditable operating model, access controls, project views, source baseline, risk controls, time tracking and commercial assumptions.",
+      "acceptance_criteria": [
+        "All M0 child issues are completed or formally deferred with accepted risk.",
+        "Course-Development-Team access is verified for both repository and project.",
+        "Required project views, labels, milestones and issue controls are evidenced.",
+        "M0 exit decision is recorded in meeting minutes."
+      ],
+      "evidence": "Links to completed M0 issues, access screenshot/API output, project URL and governance meeting record",
+      "labels": [
+        "type: epic",
+        "workstream: governance",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 8,
+      "title": "[EPIC] M1 Course architecture and content plan",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-24",
+      "planned_hours": 0,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#2"
+      ],
+      "objective": "Approve a market-valid, measurable and production-feasible course architecture before asset creation begins.",
+      "acceptance_criteria": [
+        "All M1 child issues are complete.",
+        "The curriculum supports 240 minutes maximum and at least five lectures.",
+        "Learning outcomes, activities and assessments are aligned.",
+        "Rights, policy and production standards are approved."
+      ],
+      "evidence": "Approved course blueprint, alignment matrix, rights register and architecture gate record",
+      "labels": [
+        "type: epic",
+        "workstream: content",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 16,
+      "title": "[EPIC] M2 Scripts slides and learner assets",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-07",
+      "planned_hours": 0,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#8"
+      ],
+      "objective": "Produce complete, reviewed and recording-ready instructional assets for all eight modules.",
+      "acceptance_criteria": [
+        "Every module pack meets the recording-ready gate.",
+        "Slide deck, workbook and assessments are versioned.",
+        "No placeholder, unsupported or unlicensed material remains.",
+        "Independent review evidence is linked."
+      ],
+      "evidence": "Module pack folders, master deck, workbook, assessment bank and recording-readiness approval",
+      "labels": [
+        "type: epic",
+        "workstream: content",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 29,
+      "title": "[EPIC] M3 Recording and post-production",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-21",
+      "planned_hours": 0,
+      "owner_role": "Production lead",
+      "dependencies": [
+        "#16"
+      ],
+      "objective": "Record, edit, caption and export all course media to the approved technical standard.",
+      "acceptance_criteria": [
+        "Test video feedback is resolved.",
+        "All planned lectures are recorded and edited.",
+        "Captions are corrected and media inventory reconciled.",
+        "Source and master files are backed up."
+      ],
+      "evidence": "Recording logs, approved exports, caption files, media inventory and backup evidence",
+      "labels": [
+        "type: epic",
+        "workstream: production",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 37,
+      "title": "[EPIC] M4 QA proof and release candidate",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-28",
+      "planned_hours": 0,
+      "owner_role": "QA lead",
+      "dependencies": [
+        "#29"
+      ],
+      "objective": "Validate instructional, factual, language, media, accessibility and platform readiness before submission.",
+      "acceptance_criteria": [
+        "All P0 and P1 defects are closed.",
+        "Pilot learner findings are resolved or accepted.",
+        "Release candidate is immutable and version tagged.",
+        "Final risk acceptance is documented."
+      ],
+      "evidence": "QA reports, defect register, pilot feedback and release-candidate approval",
+      "labels": [
+        "type: epic",
+        "workstream: governance",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 43,
+      "title": "[EPIC] M5 Udemy publication",
+      "milestone": "M5 — Udemy publication",
+      "due_date": "2026-09-04",
+      "planned_hours": 0,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#37"
+      ],
+      "objective": "Configure, submit and publish the course on Udemy with complete evidence and commercial controls.",
+      "acceptance_criteria": [
+        "Udemy minimum requirements and Trust & Safety controls are met.",
+        "Course is submitted by 2 September 2026 to allow the stated two-business-day review window.",
+        "Required feedback is resolved and the public URL is captured.",
+        "Actual publication investment is reconciled."
+      ],
+      "evidence": "Udemy submission record, review feedback, public URL and actual-cost snapshot",
+      "labels": [
+        "type: epic",
+        "workstream: publishing",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 49,
+      "title": "[EPIC] M6 Launch marketing",
+      "milestone": "M6 — Launch marketing",
+      "due_date": "2026-09-18",
+      "planned_hours": 0,
+      "owner_role": "Marketing owner",
+      "dependencies": [
+        "#43"
+      ],
+      "objective": "Execute a measurable, policy-compliant launch campaign and establish channel attribution.",
+      "acceptance_criteria": [
+        "Launch assets and tracking links are approved.",
+        "Social, email and partner campaigns are deployed.",
+        "Coupon, review and promotional practices comply with Udemy policy.",
+        "Launch baseline metrics are recorded."
+      ],
+      "evidence": "Campaign calendar, published assets, tracking dashboard and launch report",
+      "labels": [
+        "type: epic",
+        "workstream: marketing",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 54,
+      "title": "[EPIC] M7 ROI validation and lifecycle",
+      "milestone": "M7 — 90-day ROI validation",
+      "due_date": "2026-12-04",
+      "planned_hours": 0,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#49"
+      ],
+      "objective": "Measure 30-, 60- and 90-day learning and commercial performance and approve the next investment decision.",
+      "acceptance_criteria": [
+        "30-, 60- and 90-day reviews are complete on their actual dates.",
+        "Time, cash cost, payout, refunds and support cost are reconciled.",
+        "Break-even and ROI use realised net contribution.",
+        "Lifecycle decision is approved."
+      ],
+      "evidence": "Performance reviews, financial model and signed lifecycle decision",
+      "labels": [
+        "type: epic",
+        "workstream: roi",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "[EPIC] M8 180-day lifecycle review",
+      "milestone": "M8 — 180-day lifecycle review",
+      "due_date": "2027-03-04",
+      "planned_hours": 0,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#54"
+      ],
+      "objective": "Perform the first full content-currency, market, policy and maintenance review six months after publication.",
+      "acceptance_criteria": [
+        "Course content, links, examples and platform guidance are checked for currency.",
+        "Learner feedback themes and support demand are analysed.",
+        "Update backlog and next review date are approved.",
+        "Retire or refresh decisions include ROI implications."
+      ],
+      "evidence": "180-day review report, updated backlog and lifecycle decision",
+      "labels": [
+        "type: epic",
+        "workstream: roi",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 3,
+      "title": "Approve project charter and role ownership",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-15",
+      "planned_hours": 1,
+      "owner_role": "Course owner",
+      "dependencies": [],
+      "objective": "Approve the charter, role accountabilities, decision rights and independent QA requirement.",
+      "acceptance_criteria": [
+        "Named accountable person is recorded for each role.",
+        "Scope, exclusions, dates and commercial assumptions are accepted.",
+        "Independent QA owner is not the original author where practical.",
+        "Approval record links to the charter version reviewed."
+      ],
+      "evidence": "Approved PROJECT.md commit and meeting decision",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 4,
+      "title": "Inventory and version the source outline manuscript and presentation",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-16",
+      "planned_hours": 2,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#3"
+      ],
+      "objective": "Create a controlled inventory of all supplied source files, versions, owners, rights status and intended use.",
+      "acceptance_criteria": [
+        "Every source asset has a canonical filename and version.",
+        "Source owner, format, location and rights status are recorded.",
+        "Duplicates and obsolete versions are identified.",
+        "No confidential or personal data is stored without approval."
+      ],
+      "evidence": "Source inventory file and repository paths",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 5,
+      "title": "Approve time budget cost assumptions and ROI targets",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 2,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#3"
+      ],
+      "objective": "Approve a defensible time and cost baseline using opportunity cost, direct cash costs and realised platform contribution.",
+      "acceptance_criteria": [
+        "Initial production-hours baseline equals the sum of vetted pre-publication tasks.",
+        "Hourly rate and direct-cost assumptions have owners and dates.",
+        "Conservative, base and upside contribution scenarios are documented.",
+        "Break-even formulas use realised payout less variable cost, not list price."
+      ],
+      "evidence": "Approved ROI assumptions CSV and meeting decision",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 6,
+      "title": "Create GitHub Project views fields and automation",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 3,
+      "owner_role": "Project administrator",
+      "dependencies": [
+        "#3"
+      ],
+      "objective": "Create and verify the organization Project, required custom fields, issue intake automation and management views.",
+      "acceptance_criteria": [
+        "Project URL is recorded.",
+        "Required fields exist and contain the defined options.",
+        "All repository issues and PRs are added automatically.",
+        "Eight required views exist with the documented filters and layouts.",
+        "A screenshot or API export proves each view."
+      ],
+      "evidence": "Project URL, field export and view evidence",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 7,
+      "title": "Record weekly production review cadence and first meeting minutes",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 0.5,
+      "owner_role": "Project manager",
+      "dependencies": [
+        "#3"
+      ],
+      "objective": "Establish the governance cadence and record the first production review using the meeting-minutes issue form.",
+      "acceptance_criteria": [
+        "Recurring review cadence, chair and attendees are confirmed.",
+        "First meeting minutes include decisions, actions, blockers and milestone health.",
+        "Actions reference issue numbers and due dates.",
+        "Meeting time is added to the time log."
+      ],
+      "evidence": "Meeting-minutes issue and calendar/cadence evidence",
+      "labels": [
+        "type: meeting",
+        "workstream: governance",
+        "priority: P2"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Verify Course-Development-Team repository and project access",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 2,
+      "owner_role": "Organization owner",
+      "dependencies": [
+        "#6"
+      ],
+      "objective": "Verify every member of Course-Development-Team can access the repository and organization Project at the approved role.",
+      "acceptance_criteria": [
+        "Team slug and current member list are exported.",
+        "Repository permission is Admin for the team.",
+        "Project permission is Admin for the team.",
+        "A non-owner team member validates repository, issue, PR and project access.",
+        "Evidence contains no access tokens or secrets."
+      ],
+      "evidence": "API output or screenshots showing team membership and Admin roles",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P0",
+        "control: access"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Configure branch protection and Course-Development-Team review rules",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 2,
+      "owner_role": "Repository administrator",
+      "dependencies": [
+        "#6"
+      ],
+      "objective": "Protect main so substantive changes require a pull request, passing checks and Course-Development-Team review.",
+      "acceptance_criteria": [
+        "Direct pushes to main are restricted except approved emergency roles.",
+        "Project quality audit is required before merge.",
+        "At least one approval is required.",
+        "Course-Development-Team is configured through CODEOWNERS or rulesets.",
+        "Dismiss stale approvals after material changes."
+      ],
+      "evidence": "Ruleset export or screenshots and test PR evidence",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P0",
+        "control: access"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Establish project risk change and decision registers",
+      "milestone": "M0 — Governance and baseline",
+      "due_date": "2026-07-17",
+      "planned_hours": 1,
+      "owner_role": "Project manager",
+      "dependencies": [
+        "#3"
+      ],
+      "objective": "Create controlled registers for risks, scope changes, assumptions and decisions.",
+      "acceptance_criteria": [
+        "Risk entries include probability, impact, owner, mitigation and review date.",
+        "Changes include schedule, effort and ROI impact.",
+        "Decision records identify approver and effective date.",
+        "P0/P1 items are linked to blocker issues."
+      ],
+      "evidence": "Versioned risk/change/decision register",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 9,
+      "title": "Validate learner personas course promise and positioning",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-20",
+      "planned_hours": 2,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#4"
+      ],
+      "objective": "Validate the primary learner segments, job-to-be-done, entry knowledge, constraints and credible course promise.",
+      "acceptance_criteria": [
+        "At least two primary personas are documented.",
+        "Pain points and desired performance outcomes are evidence-based.",
+        "Course promise avoids guaranteed personal or financial outcomes.",
+        "Exclusions and prerequisites are explicit."
+      ],
+      "evidence": "Persona and positioning brief",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Validate market demand and competitor positioning",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-20",
+      "planned_hours": 3,
+      "owner_role": "Marketing owner",
+      "dependencies": [
+        "#9"
+      ],
+      "objective": "Use current marketplace evidence to validate demand, keywords, competitive gaps and pricing position.",
+      "acceptance_criteria": [
+        "Udemy Marketplace Insights or equivalent evidence is captured with date.",
+        "Top competing courses are compared on promise, runtime, rating, reviews, curriculum and price positioning.",
+        "Differentiators are specific and supportable.",
+        "Keyword shortlist is approved for title, subtitle and description."
+      ],
+      "evidence": "Market-validation report and dated evidence",
+      "labels": [
+        "type: task",
+        "workstream: marketing",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 10,
+      "title": "Rewrite measurable course and module learning outcomes",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-21",
+      "planned_hours": 3,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#9"
+      ],
+      "objective": "Replace broad statements with observable, assessable course and module outcomes.",
+      "acceptance_criteria": [
+        "Outcomes use measurable verbs and specify conditions or standards where relevant.",
+        "Each module has no more than a manageable set of outcomes.",
+        "Outcomes match the target audience and course duration.",
+        "No outcome claims accreditation, certification or guaranteed results."
+      ],
+      "evidence": "Approved learning-outcomes register",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 11,
+      "title": "Create objective content activity and assessment alignment matrix",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-22",
+      "planned_hours": 3,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#10"
+      ],
+      "objective": "Map every outcome to instruction, practice, assessment and evidence.",
+      "acceptance_criteria": [
+        "Every outcome has at least one learning activity and assessment method.",
+        "Assessment difficulty matches the cognitive level.",
+        "Coverage gaps and unnecessary content are removed.",
+        "Matrix identifies module, lecture and learner resource."
+      ],
+      "evidence": "Completed alignment matrix",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 12,
+      "title": "Approve lecture map sequencing and runtime budget",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-22",
+      "planned_hours": 2,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#10",
+        "#11"
+      ],
+      "objective": "Approve the lesson sequence, lecture count, pacing and 240-minute maximum production runtime.",
+      "acceptance_criteria": [
+        "Course contains at least five lectures and at least 30 minutes of video.",
+        "Planned total video runtime is no more than 240 minutes.",
+        "Each lecture has a purpose, outcome and estimated duration.",
+        "Sequence moves from foundation to application and avoids duplication."
+      ],
+      "evidence": "Approved lesson map and runtime budget",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 13,
+      "title": "Audit source content for duplication placeholders and unsupported claims",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-22",
+      "planned_hours": 3,
+      "owner_role": "QA reviewer",
+      "dependencies": [
+        "#4",
+        "#12"
+      ],
+      "objective": "Identify and resolve duplicate, placeholder, inaccurate, unsupported or stale content in the supplied sources.",
+      "acceptance_criteria": [
+        "All placeholders and temporary links are logged.",
+        "Unsupported claims are removed or sourced.",
+        "Duplicate sections are consolidated.",
+        "Findings include severity, owner and remediation disposition."
+      ],
+      "evidence": "Source-content audit report and remediation issue links",
+      "labels": [
+        "type: qa",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 14,
+      "title": "Approve reference copyright and source citation policy",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-23",
+      "planned_hours": 2,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#4",
+        "#13"
+      ],
+      "objective": "Approve how external sources, trademarks, images, music, templates, AI-assisted content and quotations may be used.",
+      "acceptance_criteria": [
+        "Rights register distinguishes owned, licensed, public-domain and excluded assets.",
+        "Citation format and source-quality standard are documented.",
+        "Trademark and third-party brand usage is reviewed.",
+        "AI-assisted content is human-reviewed and disclosed where required.",
+        "No asset is used without defensible permission."
+      ],
+      "evidence": "Approved rights register and citation policy",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P0",
+        "control: compliance"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 15,
+      "title": "Approve recording visual audio and file standards",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-23",
+      "planned_hours": 2,
+      "owner_role": "Production lead",
+      "dependencies": [
+        "#12"
+      ],
+      "objective": "Approve media specifications, visual system, file naming, source retention and backup standards.",
+      "acceptance_criteria": [
+        "Video is 720p or 1080p, 16:9, and tested on desktop/mobile.",
+        "Audio is synchronized, dual-channel and non-distracting.",
+        "Naming and folder conventions support version traceability.",
+        "Source, master and delivery files have backup and retention rules.",
+        "Caption and transcript formats are defined."
+      ],
+      "evidence": "Approved production standards document",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Confirm Udemy instructor commercial and compliance readiness",
+      "milestone": "M1 — Course architecture and content plan",
+      "due_date": "2026-07-24",
+      "planned_hours": 2,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#5",
+        "#14"
+      ],
+      "objective": "Confirm the instructor account, identity, premium status, payment, tax, pricing and policy prerequisites for a paid publication.",
+      "acceptance_criteria": [
+        "Instructor identity-verification status is recorded.",
+        "Premium Instructor, payout and tax settings are complete or have blockers.",
+        "Paid/free decision is approved; if free, runtime restriction is checked.",
+        "Revenue-share assumptions are dated and linked to current official guidance.",
+        "Trust & Safety, review, coupon and promotional rules are acknowledged."
+      ],
+      "evidence": "Commercial-readiness checklist and account screenshots with sensitive data redacted",
+      "labels": [
+        "type: task",
+        "workstream: publishing",
+        "priority: P0",
+        "control: compliance"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 17,
+      "title": "Build M01 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M01 — Introduction to Productivity.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M01 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M01",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 18,
+      "title": "Build M02 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M02 — Goal Setting.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M02 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M02",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 19,
+      "title": "Build M03 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M03 — Time Management Techniques.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M03 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M03",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 20,
+      "title": "Build M04 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M04 — Eliminating Distractions.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M04 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M04",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 21,
+      "title": "Build M05 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M05 — Efficient Task Management.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M05 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M05",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 22,
+      "title": "Build M06 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M06 — Effective Communication.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M06 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M06",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 23,
+      "title": "Build M07 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M07 — Mindset and Motivation.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M07 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M07",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 24,
+      "title": "Build M08 recording-ready content pack",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 3,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#11",
+        "#12",
+        "#14",
+        "#15"
+      ],
+      "objective": "Produce the complete recording-ready script, slides, activity, assessment and references for M08 — Habit Formation.",
+      "acceptance_criteria": [
+        "Script states learner outcome and practical relevance.",
+        "Slides support narration without excessive on-screen text.",
+        "At least one application activity or reflection is included.",
+        "Knowledge check or assessment maps to the approved outcome.",
+        "All facts, examples and third-party assets are reviewed.",
+        "Runtime remains within the approved module budget."
+      ],
+      "evidence": "Versioned M08 script, slide section, activity, assessment and review record",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "module: M08",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 25,
+      "title": "Create full-course slide design system and master deck",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-05",
+      "planned_hours": 6,
+      "owner_role": "Visual designer",
+      "dependencies": [
+        "#15",
+        "#17",
+        "#18",
+        "#19",
+        "#20",
+        "#21",
+        "#22",
+        "#23",
+        "#24"
+      ],
+      "objective": "Create a consistent, accessible slide system and combine all module visuals into the master deck.",
+      "acceptance_criteria": [
+        "Master layouts cover title, objectives, concept, process, example, activity, recap and references.",
+        "Typography and contrast are readable in recorded video.",
+        "Brand usage is consistent and rights-cleared.",
+        "All modules use the same navigation and visual conventions.",
+        "Deck has no placeholders or unresolved comments."
+      ],
+      "evidence": "Master deck and slide-system guide",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 26,
+      "title": "Create learner workbook templates and action tools",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-06",
+      "planned_hours": 4,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#11",
+        "#17",
+        "#18",
+        "#19",
+        "#20",
+        "#21",
+        "#22",
+        "#23",
+        "#24"
+      ],
+      "objective": "Create accessible, practical learner resources that support application beyond video consumption.",
+      "acceptance_criteria": [
+        "Workbook maps activities to modules and outcomes.",
+        "Templates are editable and include instructions and examples.",
+        "Resources do not require paid third-party tools unless disclosed.",
+        "Headings, tables and links are accessible.",
+        "Version and copyright notice are included."
+      ],
+      "evidence": "Workbook and reusable templates",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 27,
+      "title": "Create quizzes practical assignments and answer guidance",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-06",
+      "planned_hours": 4,
+      "owner_role": "Assessment designer",
+      "dependencies": [
+        "#11",
+        "#17",
+        "#18",
+        "#19",
+        "#20",
+        "#21",
+        "#22",
+        "#23",
+        "#24"
+      ],
+      "objective": "Create valid knowledge checks and practical assignments with answer guidance.",
+      "acceptance_criteria": [
+        "Questions assess approved outcomes rather than trivia.",
+        "Distractors are plausible and unambiguous.",
+        "Answer explanations teach why an option is correct or incorrect.",
+        "Practical assignments include criteria or exemplars.",
+        "No assessment exposes personal or confidential learner data."
+      ],
+      "evidence": "Assessment bank, assignment briefs and answer guidance",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 28,
+      "title": "Complete recording-readiness proof and approval",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-07",
+      "planned_hours": 3,
+      "owner_role": "QA lead",
+      "dependencies": [
+        "#25",
+        "#26",
+        "#27"
+      ],
+      "objective": "Perform the recording-ready gate across every planned lecture and learner asset.",
+      "acceptance_criteria": [
+        "All eight module packs pass the recording-ready checklist.",
+        "Runtime sum matches the approved 240-minute maximum.",
+        "Rights, references, spelling and on-screen instructions are checked.",
+        "P0/P1 defects are closed.",
+        "Approved versions are tagged or otherwise frozen for recording."
+      ],
+      "evidence": "Recording-readiness QA report and approval",
+      "labels": [
+        "type: qa",
+        "workstream: content",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Create learner support FAQ and resource-link register",
+      "milestone": "M2 — Scripts, slides and learner assets",
+      "due_date": "2026-08-07",
+      "planned_hours": 2,
+      "owner_role": "Content author",
+      "dependencies": [
+        "#26",
+        "#27"
+      ],
+      "objective": "Prepare support guidance, FAQs and a maintainable register of every external resource link used in the course.",
+      "acceptance_criteria": [
+        "FAQ covers prerequisites, downloads, activities, support boundaries and common technical issues.",
+        "Every external link has owner, purpose, review date and fallback.",
+        "No prohibited marketing or off-platform solicitation is embedded.",
+        "Support response expectations are defined."
+      ],
+      "evidence": "FAQ document and link register",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P2"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 30,
+      "title": "Complete studio and recording workflow test",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-10",
+      "planned_hours": 1.5,
+      "owner_role": "Production lead",
+      "dependencies": [
+        "#28"
+      ],
+      "objective": "Validate the complete capture, audio, lighting, screen-recording, teleprompter, export and backup workflow before full recording.",
+      "acceptance_criteria": [
+        "A 1–3 minute Udemy test video is submitted or equivalent technical review is completed.",
+        "Feedback on audio, video and delivery is recorded and resolved.",
+        "1080p/720p 16:9 output and dual-channel audio are verified.",
+        "File naming, storage and backup workflow are tested."
+      ],
+      "evidence": "Test video, feedback, remediation notes and approved sample export",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 31,
+      "title": "Record and edit course promo video",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-14",
+      "planned_hours": 3,
+      "owner_role": "Presenter",
+      "dependencies": [
+        "#30"
+      ],
+      "objective": "Produce a concise promo video that accurately represents the course, audience, outcomes and instructor credibility.",
+      "acceptance_criteria": [
+        "Claims match delivered content and avoid guarantees.",
+        "Audio/video meet the approved standard.",
+        "Promo introduces audience, problem, outcomes and course experience.",
+        "No unlicensed media or prohibited promotional claims are present.",
+        "Final export is reviewed by marketing and QA."
+      ],
+      "evidence": "Promo script, source, final export and approval",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 32,
+      "title": "Record modules M01 to M04",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-14",
+      "planned_hours": 6,
+      "owner_role": "Presenter",
+      "dependencies": [
+        "#30",
+        "#28"
+      ],
+      "objective": "Record all approved lectures for modules M01–M04 without changing instructional scope outside change control.",
+      "acceptance_criteria": [
+        "Every planned lecture is recorded against the approved script version.",
+        "Retakes and deviations are logged.",
+        "Audio and video are spot-checked after each session.",
+        "Source files are named and backed up.",
+        "Actual recording time is logged."
+      ],
+      "evidence": "Recording log and source files for M01–M04",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 33,
+      "title": "Record modules M05 to M08",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-17",
+      "planned_hours": 6,
+      "owner_role": "Presenter",
+      "dependencies": [
+        "#30",
+        "#28"
+      ],
+      "objective": "Record all approved lectures for modules M05–M08 without changing instructional scope outside change control.",
+      "acceptance_criteria": [
+        "Every planned lecture is recorded against the approved script version.",
+        "Retakes and deviations are logged.",
+        "Audio and video are spot-checked after each session.",
+        "Source files are named and backed up.",
+        "Actual recording time is logged."
+      ],
+      "evidence": "Recording log and source files for M05–M08",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 34,
+      "title": "Edit caption and export modules M01 to M04",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-18",
+      "planned_hours": 4,
+      "owner_role": "Video editor",
+      "dependencies": [
+        "#32"
+      ],
+      "objective": "Edit, caption, quality-check and export all M01–M04 lectures.",
+      "acceptance_criteria": [
+        "Errors, dead air and distracting noise are removed without distorting meaning.",
+        "Audio is synchronized and present in both channels.",
+        "Captions are manually corrected for terminology and timing.",
+        "Exports meet resolution, aspect-ratio and playback standards.",
+        "Source project and masters are retained."
+      ],
+      "evidence": "Final exports, caption files and edit logs for M01–M04",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 35,
+      "title": "Edit caption and export modules M05 to M08",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-20",
+      "planned_hours": 4,
+      "owner_role": "Video editor",
+      "dependencies": [
+        "#33"
+      ],
+      "objective": "Edit, caption, quality-check and export all M05–M08 lectures.",
+      "acceptance_criteria": [
+        "Errors, dead air and distracting noise are removed without distorting meaning.",
+        "Audio is synchronized and present in both channels.",
+        "Captions are manually corrected for terminology and timing.",
+        "Exports meet resolution, aspect-ratio and playback standards.",
+        "Source project and masters are retained."
+      ],
+      "evidence": "Final exports, caption files and edit logs for M05–M08",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 36,
+      "title": "Reconcile final lecture count runtime and media inventory",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-21",
+      "planned_hours": 1,
+      "owner_role": "Production lead",
+      "dependencies": [
+        "#31",
+        "#34",
+        "#35"
+      ],
+      "objective": "Reconcile every source, master, caption, thumbnail, promo and delivery asset against the approved curriculum.",
+      "acceptance_criteria": [
+        "At least five separate lectures exist.",
+        "Total video runtime is at least 30 minutes and no more than the approved 240 minutes.",
+        "No lecture or caption file is missing or duplicated.",
+        "Checksums or equivalent version identifiers are recorded.",
+        "Backup location and restore test are confirmed."
+      ],
+      "evidence": "Final media inventory and runtime report",
+      "labels": [
+        "type: task",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Verify production backup restore and retention",
+      "milestone": "M3 — Recording and post-production",
+      "due_date": "2026-08-21",
+      "planned_hours": 1,
+      "owner_role": "Production lead",
+      "dependencies": [
+        "#34",
+        "#35",
+        "#36"
+      ],
+      "objective": "Prove that source, project, master and delivery media can be restored from the approved backup location.",
+      "acceptance_criteria": [
+        "Backup includes source video, audio, edit projects, captions, graphics and final exports.",
+        "A sample restore is completed and compared to source.",
+        "Retention owner and period are documented.",
+        "Access is restricted to approved contributors."
+      ],
+      "evidence": "Backup inventory and restore-test record",
+      "labels": [
+        "type: qa",
+        "workstream: production",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 38,
+      "title": "Perform instructional design and factual QA",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-25",
+      "planned_hours": 2,
+      "owner_role": "QA reviewer",
+      "dependencies": [
+        "#36"
+      ],
+      "objective": "Review the complete course for outcome alignment, accuracy, coherence, practical value and cognitive load.",
+      "acceptance_criteria": [
+        "Every outcome is taught and assessed.",
+        "Facts and references are verified against authoritative sources.",
+        "Examples are realistic and inclusive.",
+        "No duplicate, contradictory or unsupported guidance remains.",
+        "Defects are logged with severity and owner."
+      ],
+      "evidence": "Instructional/factual QA report and closed defect links",
+      "labels": [
+        "type: qa",
+        "workstream: content",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 39,
+      "title": "Perform language proof and consistency review",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-25",
+      "planned_hours": 1.5,
+      "owner_role": "Language editor",
+      "dependencies": [
+        "#36"
+      ],
+      "objective": "Proof all learner-facing text, narration transcripts, captions, slides, workbook and landing-page copy.",
+      "acceptance_criteria": [
+        "Spelling, grammar, punctuation and terminology are consistent.",
+        "Module, lecture and resource names match across all assets.",
+        "Captions reflect spoken meaning and proper nouns.",
+        "No placeholder or internal production notes remain.",
+        "Corrections are applied to source and final assets."
+      ],
+      "evidence": "Proofing report and corrected asset versions",
+      "labels": [
+        "type: qa",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 40,
+      "title": "Perform video audio caption and accessibility QA",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-26",
+      "planned_hours": 2,
+      "owner_role": "Media QA reviewer",
+      "dependencies": [
+        "#36"
+      ],
+      "objective": "Validate playback, audio, captions, visual legibility and accessibility across representative devices.",
+      "acceptance_criteria": [
+        "Every video plays from start to finish without corruption.",
+        "Audio is synchronized, dual-channel and non-distracting.",
+        "Captions are accurate, timed and complete.",
+        "Visual text is legible and meaningful visuals are explained.",
+        "Desktop and mobile spot checks pass."
+      ],
+      "evidence": "Media/accessibility QA report and device test evidence",
+      "labels": [
+        "type: qa",
+        "workstream: production",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 41,
+      "title": "Conduct pilot learner review and remediate findings",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-27",
+      "planned_hours": 1.5,
+      "owner_role": "Instructional designer",
+      "dependencies": [
+        "#38",
+        "#39",
+        "#40"
+      ],
+      "objective": "Run a structured pilot with representative learners and remediate material learning-experience defects.",
+      "acceptance_criteria": [
+        "Pilot includes at least three representative reviewers where feasible.",
+        "Feedback covers clarity, pacing, usefulness, difficulty and technical experience.",
+        "Findings are triaged by severity.",
+        "P0/P1 findings are resolved or explicitly accepted.",
+        "Consent and privacy are respected."
+      ],
+      "evidence": "Pilot protocol, anonymized feedback and remediation record",
+      "labels": [
+        "type: qa",
+        "workstream: content",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 42,
+      "title": "Approve final release candidate and accepted risks",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-28",
+      "planned_hours": 1,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#38",
+        "#39",
+        "#40",
+        "#41"
+      ],
+      "objective": "Approve the immutable release candidate after review of defects, risks, evidence and platform readiness.",
+      "acceptance_criteria": [
+        "All required QA reports are complete.",
+        "No open P0/P1 defects remain.",
+        "Accepted P2/P3 risks have owners and review dates.",
+        "Release candidate version/tag and checksums are recorded.",
+        "Course owner and QA lead approve."
+      ],
+      "evidence": "Signed release-candidate decision and version identifier",
+      "labels": [
+        "type: task",
+        "workstream: governance",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Complete Udemy Trust Safety copyright and policy compliance review",
+      "milestone": "M4 — QA, proof and release candidate",
+      "due_date": "2026-08-28",
+      "planned_hours": 2,
+      "owner_role": "Compliance reviewer",
+      "dependencies": [
+        "#14",
+        "#42"
+      ],
+      "objective": "Validate the release candidate against current Udemy Trust & Safety, content, review, marketing, copyright and AI-use rules.",
+      "acceptance_criteria": [
+        "Instructor Content and Behavior Rules are reviewed.",
+        "Copyright, trademark and restricted-topic checks pass.",
+        "Review manipulation and prohibited marketing practices are excluded.",
+        "External links and bonus content comply with current rules.",
+        "Any AI-assisted content meets current quality and disclosure requirements."
+      ],
+      "evidence": "Completed policy checklist with dated official-source links",
+      "labels": [
+        "type: qa",
+        "workstream: governance",
+        "priority: P0",
+        "control: compliance"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 44,
+      "title": "Finalise Udemy landing page instructor profile and creative",
+      "milestone": "M5 — Udemy publication",
+      "due_date": "2026-08-31",
+      "planned_hours": 2,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#42",
+        "#9"
+      ],
+      "objective": "Create the complete course landing page and instructor presentation using validated positioning and current Udemy standards.",
+      "acceptance_criteria": [
+        "Unique course image meets current image standards.",
+        "Title and subtitle include relevant, natural keywords.",
+        "Description exceeds 200 words and accurately reflects the course.",
+        "Intended learners section is complete.",
+        "Instructor bio and profile picture are complete.",
+        "Claims and creative are rights-cleared."
+      ],
+      "evidence": "Landing-page copy, image source, instructor profile and review evidence",
+      "labels": [
+        "type: task",
+        "workstream: publishing",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 45,
+      "title": "Upload and configure curriculum resources captions and messages",
+      "milestone": "M5 — Udemy publication",
+      "due_date": "2026-09-01",
+      "planned_hours": 1.5,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#42",
+        "#44"
+      ],
+      "objective": "Upload and correctly configure the approved curriculum, downloadable resources, captions and learner communications.",
+      "acceptance_criteria": [
+        "All lectures are ordered correctly and titles match the approved map.",
+        "Resources and captions are attached to the correct lectures.",
+        "Preview settings, welcome and completion messages are approved.",
+        "No internal source files or confidential data are uploaded.",
+        "Full course is previewed as a learner."
+      ],
+      "evidence": "Udemy curriculum screenshots and upload checklist",
+      "labels": [
+        "type: task",
+        "workstream: publishing",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 46,
+      "title": "Complete Udemy release checklist and submit for review",
+      "milestone": "M5 — Udemy publication",
+      "due_date": "2026-09-02",
+      "planned_hours": 1,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#45"
+      ],
+      "objective": "Perform the final platform checklist and submit the complete course early enough to support the publication target.",
+      "acceptance_criteria": [
+        "Course has at least 30 minutes of video and at least five lectures.",
+        "720p/1080p video, synchronized dual-channel audio and landing-page requirements pass.",
+        "Trust & Safety and commercial readiness checks are complete.",
+        "Course is submitted no later than 2 September 2026.",
+        "Submission timestamp and status are recorded."
+      ],
+      "evidence": "Completed release checklist and submission evidence",
+      "labels": [
+        "type: qa",
+        "workstream: publishing",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 47,
+      "title": "Resolve Udemy review feedback and publish",
+      "milestone": "M5 — Udemy publication",
+      "due_date": "2026-09-04",
+      "planned_hours": 1.5,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#46"
+      ],
+      "objective": "Resolve all required Udemy Quality Review findings and obtain published status.",
+      "acceptance_criteria": [
+        "Every required fix is tracked to completion.",
+        "Material content changes repeat relevant internal QA.",
+        "Course is resubmitted promptly after fixes.",
+        "Live status and public URL are verified.",
+        "Potential search-discovery delay is recorded separately from publication."
+      ],
+      "evidence": "Review feedback log, resubmission evidence and live status",
+      "labels": [
+        "type: task",
+        "workstream: publishing",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 48,
+      "title": "Record public course URL publication evidence and actual investment",
+      "milestone": "M5 — Udemy publication",
+      "due_date": "2026-09-04",
+      "planned_hours": 0.5,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#47"
+      ],
+      "objective": "Capture publication evidence and freeze the actual initial investment baseline for ROI measurement.",
+      "acceptance_criteria": [
+        "Public URL, publication timestamp and final course metadata are recorded.",
+        "All time logs through publication are reconciled.",
+        "Direct costs and approved opportunity cost are totalled.",
+        "Baseline excludes post-publication lifecycle effort unless explicitly included.",
+        "Financial record links to source evidence."
+      ],
+      "evidence": "Publication evidence and actual-investment snapshot",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 50,
+      "title": "Produce launch creative clips lead magnet and tracking links",
+      "milestone": "M6 — Launch marketing",
+      "due_date": "2026-09-09",
+      "planned_hours": 2,
+      "owner_role": "Marketing owner",
+      "dependencies": [
+        "#47"
+      ],
+      "objective": "Produce policy-compliant launch assets and an attribution-ready campaign package.",
+      "acceptance_criteria": [
+        "Creative reflects the actual course and approved brand.",
+        "At least three reusable clips/posts and one lead asset are complete.",
+        "Every channel link uses a documented attribution convention.",
+        "Coupon terms and expiry are approved.",
+        "No review manipulation or guaranteed-outcome claims are used."
+      ],
+      "evidence": "Creative pack, source files, UTM/link register and approval",
+      "labels": [
+        "type: task",
+        "workstream: marketing",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 51,
+      "title": "Execute social and email launch campaign",
+      "milestone": "M6 — Launch marketing",
+      "due_date": "2026-09-18",
+      "planned_hours": 1,
+      "owner_role": "Marketing owner",
+      "dependencies": [
+        "#50"
+      ],
+      "objective": "Deploy the approved launch sequence across owned social and email channels and record performance.",
+      "acceptance_criteria": [
+        "Campaign calendar is executed or deviations are documented.",
+        "Each message has audience, channel, owner and tracking link.",
+        "Consent and unsubscribe controls are respected.",
+        "Reach, clicks, enrolments and realised payout are captured where available.",
+        "Support questions are routed."
+      ],
+      "evidence": "Published campaign links, email report and launch metrics",
+      "labels": [
+        "type: task",
+        "workstream: marketing",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 52,
+      "title": "Execute partner affiliate and influencer outreach",
+      "milestone": "M6 — Launch marketing",
+      "due_date": "2026-09-18",
+      "planned_hours": 1,
+      "owner_role": "Partnership owner",
+      "dependencies": [
+        "#50"
+      ],
+      "objective": "Activate a controlled partner and affiliate outreach process with clear claims, links and commercial terms.",
+      "acceptance_criteria": [
+        "Target list and outreach status are documented.",
+        "Partners receive approved copy and tracking links.",
+        "Affiliate or referral terms are recorded.",
+        "No incentivized or manipulated reviews are requested.",
+        "Leads and enrolments are attributed."
+      ],
+      "evidence": "Outreach register, approved pack and channel results",
+      "labels": [
+        "type: task",
+        "workstream: marketing",
+        "priority: P2"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Establish launch analytics learner-support and incident dashboard",
+      "milestone": "M6 — Launch marketing",
+      "due_date": "2026-09-18",
+      "planned_hours": 2,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#47",
+        "#50"
+      ],
+      "objective": "Create the operational dashboard used for performance, support, refunds, reviews and content incidents.",
+      "acceptance_criteria": [
+        "Dashboard captures enrolments, payout, refunds, rating, reviews, completion proxies and support demand.",
+        "Metrics have definitions, source, owner and update cadence.",
+        "Learner issues can create defects or lifecycle tasks.",
+        "Sensitive learner information is minimized and protected."
+      ],
+      "evidence": "Analytics dashboard and metric dictionary",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 53,
+      "title": "Complete 30-day commercial and learner experience review",
+      "milestone": "M7 — 90-day ROI validation",
+      "due_date": "2026-10-04",
+      "planned_hours": 2,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#49"
+      ],
+      "objective": "Review the first 30 days of commercial performance, learner experience, support demand and urgent optimisation needs.",
+      "acceptance_criteria": [
+        "Actual 30-day cutoff is used.",
+        "Enrolments, payout, refunds, rating, reviews and engagement indicators are reconciled.",
+        "Top learner questions and drop-off signals are analysed.",
+        "Urgent defects and quick wins become owned issues.",
+        "ROI forecast is refreshed."
+      ],
+      "evidence": "30-day review report and linked improvement issues",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 55,
+      "title": "Complete 60-day performance and optimisation review",
+      "milestone": "M7 — 90-day ROI validation",
+      "due_date": "2026-11-03",
+      "planned_hours": 2,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#53"
+      ],
+      "objective": "Review 60-day channel efficiency, learner outcomes, content issues and progress to break-even.",
+      "acceptance_criteria": [
+        "Actual 60-day cutoff is used.",
+        "Channel-level payout and conversion are compared.",
+        "Rating, review, refund and support trends are assessed.",
+        "Content or landing-page experiments have hypotheses and owners.",
+        "Break-even forecast is updated."
+      ],
+      "evidence": "60-day review report and optimisation backlog",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P1"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 56,
+      "title": "Complete 90-day actual ROI and break-even analysis",
+      "milestone": "M7 — 90-day ROI validation",
+      "due_date": "2026-12-03",
+      "planned_hours": 3,
+      "owner_role": "Finance owner",
+      "dependencies": [
+        "#55",
+        "#48"
+      ],
+      "objective": "Calculate actual 90-day ROI, contribution margin and progress to break-even using reconciled time, costs and realised revenue.",
+      "acceptance_criteria": [
+        "Actual hours and direct costs are complete.",
+        "Platform payout, refunds, taxes/fees and variable support/marketing costs are reconciled.",
+        "ROI and break-even formulas are shown and independently checked.",
+        "Scenario variance versus baseline is explained.",
+        "Data cutoff and limitations are stated."
+      ],
+      "evidence": "90-day financial model and independent review",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 57,
+      "title": "Approve continue optimise re-record reprice bundle or retire decision",
+      "milestone": "M7 — 90-day ROI validation",
+      "due_date": "2026-12-04",
+      "planned_hours": 1,
+      "owner_role": "Course owner",
+      "dependencies": [
+        "#56"
+      ],
+      "objective": "Approve the next lifecycle investment decision using learning, market and financial evidence.",
+      "acceptance_criteria": [
+        "Decision explicitly selects continue, optimise, re-record, reprice, bundle or retire.",
+        "Rationale references learner and financial evidence.",
+        "Approved budget, owner and deadline are recorded.",
+        "Risks and expected ROI impact are stated.",
+        "Next review date is confirmed."
+      ],
+      "evidence": "Signed lifecycle decision and funded action backlog",
+      "labels": [
+        "type: task",
+        "workstream: roi",
+        "priority: P0"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": 58,
+      "title": "Schedule and complete 180-day content currency review",
+      "milestone": "M8 — 180-day lifecycle review",
+      "due_date": "2027-03-04",
+      "planned_hours": 3,
+      "owner_role": "QA lead",
+      "dependencies": [
+        "#57"
+      ],
+      "objective": "Perform the six-month content, link, market, policy and learner-feedback review.",
+      "acceptance_criteria": [
+        "Actual 180-day cutoff is used.",
+        "All links, examples, downloads and platform instructions are checked.",
+        "Learner feedback and competitor changes are analysed.",
+        "Stale or weak content becomes prioritized update issues.",
+        "Next review is scheduled."
+      ],
+      "evidence": "180-day review report and update backlog",
+      "labels": [
+        "type: task",
+        "workstream: content",
+        "priority: P2"
+      ],
+      "validity": "approved"
+    },
+    {
+      "issue_number": null,
+      "title": "Review Udemy policy pricing and revenue-share changes at 180 days",
+      "milestone": "M8 — 180-day lifecycle review",
+      "due_date": "2027-03-04",
+      "planned_hours": 1.5,
+      "owner_role": "Publishing owner",
+      "dependencies": [
+        "#58"
+      ],
+      "objective": "Revalidate platform, promotional, pricing, payout and Trust & Safety assumptions before the next lifecycle investment.",
+      "acceptance_criteria": [
+        "Current official policies are compared with the publication baseline.",
+        "Commercial-model changes are reflected in ROI forecasts.",
+        "Required course or marketing changes become issues.",
+        "Evidence is dated and linked."
+      ],
+      "evidence": "Policy-change assessment and updated assumptions",
+      "labels": [
+        "type: qa",
+        "workstream: publishing",
+        "priority: P1",
+        "control: compliance"
+      ],
+      "validity": "approved"
+    }
+  ]
+}
