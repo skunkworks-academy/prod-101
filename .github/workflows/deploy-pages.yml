@@ -66,6 +66,10 @@ jobs:
           print(f'Verified Academy canonical v10 shell on {len(pages)} published page(s).')
           PY
       - uses: actions/configure-pages@v5
+      - name: Install and verify Academy search favicons
+        uses: skunkworks-academy/www/.github/actions/search-favicons@070f621875577a66ae43cdffa7e9d20c65efdc71
+        with:
+          artifact-path: "site"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
